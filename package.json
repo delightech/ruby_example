@@ -1,0 +1,26 @@
+{
+  "name": "ruby_practice",
+  "version": "1.0.0",
+  "description": "just practice",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "puppeteer": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delightech/ruby_practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/delightech/ruby_practice/issues"
+  },
+  "homepage": "https://github.com/delightech/ruby_practice#readme"
+}
