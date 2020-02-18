@@ -1,9 +1,34 @@
 version: 2
 orbs:
-  ruby: circleci/ruby@0.1.2 
+  ruby: circleci/ruby@0.1.2
+  node: circleci/node@1.1.6
 
 jobs:
   build:
+    docker:
+      - image: circleci/node:12.13
+
+    steps:
+      - checkout
+
+      - run:
+          name: update-npm
+          command: sudo npm install -g npm@6.12.1
+
+      - restore_cache:
+          keys:
+            - npm-dependency-cache-{{ checksum "package-lock.json" }}
+
+      - run:
+          name: install-npm-wee
+          command: npm install
+
+      - save_cache:
+          key: npm-dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+
+  test:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
         environment:
@@ -20,15 +45,14 @@ jobs:
 
       - restore_cache:
           keys:
-            - ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
-            - ruby_practice-bundle-
+            - bundle-{{ checksum "Gemfile.lock" }}
 
       - run:
-          name: 'bundle install'
+          name: bundle-install
           command: bundle check || bundle install
 
       - save_cache:
-          key: ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
+          key: bundle-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
@@ -36,4 +60,11 @@ jobs:
           name: 'test/unit'
           command: bundle exec ruby test/test_my_calss.rb
 
-
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
