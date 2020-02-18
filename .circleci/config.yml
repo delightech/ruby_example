@@ -15,7 +15,7 @@ jobs:
       - checkout
 
       - run:
-          name: Which bundler?
+          name: 'Which bundler?'
           command: bundle -v
 
       - restore_cache:
@@ -24,7 +24,7 @@ jobs:
          - ruby_practice-bundle-
 
       - run:
-        name: bundle install
+        name: 'bundle install'
         command: bundle check || bundle install
 
       - save_cache:
@@ -33,7 +33,7 @@ jobs:
          - vendor/bundle
 
       - run:
-        name: test/nit
+        name: 'test/unit'
         command: bundle exec ruby test/test_my_calss.rb
 
       - store_test_results:
