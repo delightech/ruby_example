@@ -15,8 +15,8 @@ jobs:
       - checkout
 
       - run:
-          name: 'Which bundler?'
-          command: bundle -v
+          name: bunlder
+          command: gem install bundler
 
       - restore_cache:
           keys:
