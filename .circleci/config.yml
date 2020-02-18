@@ -19,24 +19,24 @@ jobs:
           command: bundle -v
 
       - restore_cache:
-        keys:
-         - ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
-         - ruby_practice-bundle-
+          keys:
+            - ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
+            - ruby_practice-bundle-
 
       - run:
-        name: 'bundle install'
-        command: bundle check || bundle install
+          name: 'bundle install'
+          command: bundle check || bundle install
 
       - save_cache:
-        key: ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
-        paths:
-         - vendor/bundle
+          key: ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
 
       - run:
-        name: 'test/unit'
-        command: bundle exec ruby test/test_my_calss.rb
+          name: 'test/unit'
+          command: bundle exec ruby test/test_my_calss.rb
 
       - store_test_results:
-        path: test_results
+          path: test_results
 
 
