@@ -6,22 +6,37 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
-    executor: default
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+
     steps:
       - checkout
+
       - run:
           name: Which bundler?
           command: bundle -v
+
       - restore_cache:
         keys:
          - ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
          - ruby_practice-bundle-
+
       - run:
         name: bundle install
         command: bundle check || bundle install
+
       - save_cache:
         key: ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
         paths:
          - vendor/bundle
+
+      - run:
+        name: test/nit
+        command: bundle exec ruby test/test_my_calss.rb
+
+      - store_test_results:
+        path: test_results
 
 
