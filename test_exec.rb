@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './MyClass'
+require './my_class'
 my = MyClass.new
 my.hello
 my.length = ARGV[0]

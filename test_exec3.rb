@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './MyClass3'
+require './my_class3'
 my = MyClass3.new(ARGV[0])
 my.hi
 MyClass3.hello

@@ -1,4 +1,4 @@
-require './Parent'
+require './parent'
 class MyClass3 < Parent
     attr_accessor :length
     
