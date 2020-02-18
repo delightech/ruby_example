@@ -36,7 +36,4 @@ jobs:
           name: 'test/unit'
           command: bundle exec ruby test/test_my_calss.rb
 
-      - store_test_results:
-          path: test_results
-
 
