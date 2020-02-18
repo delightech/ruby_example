@@ -12,4 +12,16 @@ jobs:
       - run:
           name: Which bundler?
           command: bundle -v
-      - ruby/bundle-install
+      - restore_cache:
+        keys:
+         - ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
+         - ruby_practice-bundle-
+      - run:
+        name: bundle install
+        command: bundle check || bundle install
+      - save_cache:
+        key: ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
+        paths:
+         - vendor/bundle
+
+
