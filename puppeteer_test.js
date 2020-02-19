@@ -17,6 +17,7 @@ puppeteer.launch({headless: false, dumpio: true, devtools: true}).then(async bro
 
     await page.waitFor(10000)
     await browser.close();
+    process.exit(1);
   } catch (e) {
     console.log(e.toString);
     console.log(e.stack);
