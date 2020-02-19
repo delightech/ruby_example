@@ -1,24 +1,27 @@
+# frozen_string_literal: true
+
 require 'open3'
 class MyClass
-    def hello
-        puts 'Hello, My object!'
-    end
-    def length=(val)
-        @length = val
-    end
-    def length
-        @length
-    end
-    def test1
-      "TEST1"
-    end
-    def test2
-      "TEST2"
-    end
-    def test3
-      out, err, status = Open3.capture3("node #{File.expand_path("./", __dir__)}/puppeteer_test.js")
-      puts out
-      puts err
-      raise "Error occurred by node.js code!!!" if status != 0
-    end
+  def hello
+    puts 'Hello, My object!'
+  end
+
+  attr_writer :length
+
+  attr_reader :length
+
+  def test1
+    'TEST1'
+  end
+
+  def test2
+    'TEST2'
+  end
+
+  def test3
+    out, err, status = Open3.capture3("node #{File.expand_path('./', __dir__)}/puppeteer_test.js")
+    puts out
+    puts err
+    raise 'Error occurred by node.js code!!!' if status != 0
+  end
 end

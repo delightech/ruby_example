@@ -1,5 +1,7 @@
-require "net/http"
+# frozen_string_literal: true
 
-uri = URI.parse("https://jsonplaceholder.typicode.com/todos/1")
+require 'net/http'
+
+uri = URI.parse('https://jsonplaceholder.typicode.com/todos/1')
 puts uri.host
 puts uri.port

@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
-h = {:a => 'A', :b => 'B'}
+# frozen_string_literal: true
+
+h = { a: 'A', b: 'B' }
 puts h[:a]
 
-a = ['a','b','c']
+a = %w[a b c]
 puts a[0]
 
-h2 = {a:'AAA', b:'BBB'}
+h2 = { a: 'AAA', b: 'BBB' }
 puts h2[:a]

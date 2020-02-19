@@ -1,33 +1,34 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
+
 test = ARGV[0]
 a = case test
     when 'abc' then 'ABC'
     when 'bcd' then 'BCD'
-    when 'efg','hij' then 'Other'
+    when 'efg', 'hij' then 'Other'
     else 'ELSE'
     end
 puts a
 
 b = case test
     when 'abc'
-        'ABC'
+      'ABC'
     when 'bcd'
-        'BCD'
-    when 'efg','hij'
-        'Other'
+      'BCD'
+    when 'efg', 'hij'
+      'Other'
     else
-        'ELSE'
+      'ELSE'
     end
 puts b
 
-c = case
-    when test == 'abc'
-        'ABC'
-    when test == 'bcd'
-        'BCD'
-    when test == 'efg' || test == 'hij'
-        'Other'
+c = if test == 'abc'
+      'ABC'
+    elsif test == 'bcd'
+      'BCD'
+    elsif test == 'efg' || test == 'hij'
+      'Other'
     else
-        'ELSE'
+      'ELSE'
     end
 puts c

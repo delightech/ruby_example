@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Mod
-    class ClassInMod
-        def echo(val)
-            puts val
-        end
+  class ClassInMod
+    def echo(val)
+      puts val
     end
+  end
 end
 
 m = Mod::ClassInMod.new
-m.echo("abc")
+m.echo('abc')

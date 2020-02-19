@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
-puts "START"
-puts "END"
+# frozen_string_literal: true
+
+puts 'START'
+puts 'END'
 puts ''
 
 DATA.each_line do |line|
-    puts line
+  puts line
 end
 
 __END__

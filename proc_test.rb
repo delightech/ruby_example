@@ -1,14 +1,16 @@
 #!/usr/bin/env ruby
-format = Proc.new do |name|
-    puts "Hello, #{name}"
+# frozen_string_literal: true
+
+format = proc do |name|
+  puts "Hello, #{name}"
 end
-format.call("Hisa")
+format.call('Hisa')
 
-p = proc{|name| puts "Hello, #{name}"}
-p.call("John")
+p = proc { |name| puts "Hello, #{name}" }
+p.call('John')
 
-l = lambda{|name| puts "Hello, #{name}"}
-l.call("Bob")
+l = ->(name) { puts "Hello, #{name}" }
+l.call('Bob')
 
-lit = ->(name){ puts "Hello, #{name}"}
-lit.call("Kikkawa")
+lit = ->(name) { puts "Hello, #{name}" }
+lit.call('Kikkawa')
