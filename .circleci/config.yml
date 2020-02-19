@@ -21,15 +21,15 @@ jobs:
 
       - run:
           name: install-npm-package
-          command: npm install
+          command: npm ci
 
       - save_cache:
           key: npm-dependency-cache-{{ checksum "package-lock.json" }}
           paths:
-            - ./node_modules
+            - ./.npm
 
       - run:
-          name: bunlder
+          name: insltall-bunlder
           command: gem install bundler
 
       - restore_cache:
