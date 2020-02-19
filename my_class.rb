@@ -16,7 +16,7 @@ class MyClass
       "TEST2"
     end
     def test3
-      out, err, status = Open3.capture3("node #{File.expand_path("../", __dir__)}/puppeteer_test.js")
+      out, err, status = Open3.capture3("node #{File.expand_path("./", __dir__)}/puppeteer_test.js")
       puts out
       puts err
     end
