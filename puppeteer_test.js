@@ -13,11 +13,12 @@ puppeteer.launch({headless: false, dumpio: true, devtools: true}).then(async bro
         console.log(element);
         return element;
     });
+    console.log("===========================");
     console.log(res);
+    console.log("===========================");
 
     await page.waitFor(10000)
     await browser.close();
-    process.exit(1);
   } catch (e) {
     console.log(e.toString);
     console.log(e.stack);
