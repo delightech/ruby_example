@@ -19,5 +19,6 @@ class MyClass
       out, err, status = Open3.capture3("node #{File.expand_path("./", __dir__)}/puppeteer_test.js")
       puts out
       puts err
+      raise "Error occurred by node.js code!!!" if status != 0
     end
 end
