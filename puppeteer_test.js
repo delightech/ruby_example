@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-puppeteer.launch({headless: false, dumpio: true, devtools: true}).then(async browser => {
+puppeteer.launch({headless: true, dumpio: false, devtools: false}).then(async browser => {
   try {
     console.log('start access')
     let page = await browser.newPage();
