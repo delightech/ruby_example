@@ -20,7 +20,7 @@ jobs:
             - npm-dependency-cache-{{ checksum "package-lock.json" }}
 
       - run:
-          name: install-npm-package
+          name: npm-ci
           command: npm ci
 
       - save_cache:
@@ -34,16 +34,16 @@ jobs:
 
       - restore_cache:
           keys:
-            - bundle-{{ checksum "Gemfile.lock" }}
+            - bundle-cache-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: bundle-install
           command: bundle check || bundle install
 
       - save_cache:
-          key: bundle-{{ checksum "Gemfile.lock" }}
+          key: bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
-            - vendor/bundle
+            - ./vendor/bundle
 
       - run:
           name: 'test/unit'
