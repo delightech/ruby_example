@@ -8,7 +8,10 @@ class MyClass
     def length
         @length
     end
-    def test
-      "TEST"
+    def test1
+      "TEST1"
+    end
+    def test2
+      "TEST2"
     end
 end

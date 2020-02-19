@@ -1,12 +1,13 @@
 version: 2
-orbs:
-  ruby: circleci/ruby@0.1.2
-  node: circleci/node@1.1.6
-
 jobs:
   build:
+    context: context_test
     docker:
-      - image: circleci/node:12.13
+      - image: circleci/ruby:2.6.5-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
 
     steps:
       - checkout
@@ -28,17 +29,6 @@ jobs:
           paths:
             - ./node_modules
 
-  test:
-    docker:
-      - image: circleci/ruby:2.6.3-stretch-node
-        environment:
-          BUNDLE_JOBS: 3
-          BUNDLE_RETRY: 3
-          BUNDLE_PATH: vendor/bundle
-
-    steps:
-      - checkout
-
       - run:
           name: bunlder
           command: gem install bundler
@@ -59,12 +49,3 @@ jobs:
       - run:
           name: 'test/unit'
           command: bundle exec ruby test/test_my_calss.rb
-
-workflows:
-  version: 2
-  build_and_test:
-    jobs:
-      - build
-      - test:
-          requires:
-            - build

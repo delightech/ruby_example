@@ -1,0 +1,39 @@
+version: 2
+orbs:
+  ruby: circleci/ruby@0.1.2 
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.3-stretch-node
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+
+    steps:
+      - checkout
+
+      - run:
+          name: bunlder
+          command: gem install bundler
+
+      - restore_cache:
+          keys:
+            - ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
+            - ruby_practice-bundle-
+
+      - run:
+          name: 'bundle install'
+          command: bundle check || bundle install
+
+      - save_cache:
+          key: ruby_practice-bundle-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: 'test/unit'
+          command: bundle exec ruby test/test_my_calss.rb
+
+
