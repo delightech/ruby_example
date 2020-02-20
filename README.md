@@ -1,2 +1,2 @@
-# ruby_practice
-just practice
+# ruby_prj
+Sample project for Ruby and something.
