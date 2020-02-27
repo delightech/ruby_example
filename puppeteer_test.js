@@ -17,7 +17,7 @@ puppeteer.launch({headless: true, dumpio: false, devtools: false}).then(async br
     console.log(res);
     console.log("===========================");
 
-    await page.waitFor(10000)
+    //await page.waitFor(10000)
     await browser.close();
   } catch (e) {
     console.log(e.toString);

@@ -11,10 +11,12 @@ class TestMyClass < Test::Unit::TestCase
   # test for circleci
   # check your circleci project env and context env
   def test_test1
+    ENV['PROJECT_ENV_1'] ||= 'TEST1'
     assert_equal(ENV['PROJECT_ENV_1'], @m.test1)
   end
 
   def test_test2
+    ENV['PROJECT_ENV_2'] ||= 'TEST2'
     assert_equal(ENV['PROJECT_ENV_2'], @m.test2)
   end
 
