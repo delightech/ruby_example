@@ -2,13 +2,7 @@
 
 require 'open3'
 class MyClass
-  def hello
-    puts 'Hello, My object!'
-  end
-
-  attr_writer :length
-
-  attr_reader :length
+  attr_accessor :length
 
   def test1
     'TEST1'
