@@ -1,0 +1,5 @@
+not uniq string
+uniq string1
+uniq string2
+uniq string3
+not uniq string
