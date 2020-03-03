@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-puts "START"
+puts 'START'
 puts
 
 DATA.each_line do |line|
@@ -9,7 +9,7 @@ DATA.each_line do |line|
 end
 
 puts
-puts "END"
+puts 'END'
 
 __END__
 ここから下はRubyプログラムではありません。
