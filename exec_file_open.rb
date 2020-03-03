@@ -1,3 +1,4 @@
 require './exec/executor'
 
-Exec::Executor.new.open
+pp Exec::Executor.new.read
+pp Exec::Executor.new.exec
