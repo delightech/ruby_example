@@ -21,7 +21,7 @@ b = factory(name)
 pp b&.name
 #=>"test"
 
-# factoryメソッドがレシーバnilのオブジェクトを返すケース
+# factoryメソッドがnilを返すケース
 name = ''
 b = factory(name)
 pp b&.name
