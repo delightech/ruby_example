@@ -1,6 +1,6 @@
 require 'net/sftp'
 csv_str = 'hogehogeho,hogehoge,hogehoge' # csvフォーマットにした文字列が入っている
-path = '/home/ubuntu/tmp' # 出力先のファイルパス
+path = '/remote/path/tmp' # 出力先のファイルパス
 filename = 'hoge.csv' # 出力したいファイル名
 
 tmp_dir = "./tmp/"
